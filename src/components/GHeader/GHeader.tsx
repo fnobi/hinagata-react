@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import { IGHeaderProps } from ".";
 
-import logo from "../../assets/logo.svg";
+import logo from "~/assets/logo.svg";
 
 const keyframesAppLogoSpin = keyframes`
   from { transform: rotate(0deg); }
