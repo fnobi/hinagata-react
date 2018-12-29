@@ -1,21 +1,26 @@
 import * as React from 'react';
-import GHeader from "./components/GHeader";
+import styled from 'styled-components';
+import GHeader from './components/GHeader';
 import RouterContent from './RouterContent';
 
-import './App.css';
+const AppWrapper = styled.div`
+  text-align: center;
+`;
 
-class App extends React.Component {
+const AppIntro = styled.p`
+  font-size: large;
+`;
+
+export default class extends React.Component {
   public render() {
     return (
-      <div className="App">
+      <AppWrapper>
         <GHeader />
         <RouterContent />
-        <p className="App-intro">
+        <AppIntro>
           To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+        </AppIntro>
+      </AppWrapper>
     );
   }
 }
-
-export default App;
