@@ -13,7 +13,7 @@ interface IDispatchProps {
 }
 
 export interface IGHeaderProps extends IStateProps, IDispatchProps {
-  greeting: string,
+  greeting: string;
 }
 
 const mapStateToProps = (state: IState): IStateProps => ({
