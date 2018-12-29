@@ -1,8 +1,9 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import * as React from "react";
+import { Link } from "react-router-dom";
+import styled, { keyframes } from "styled-components";
+import { IGHeaderProps } from ".";
 
-import logo from '../../assets/logo.svg';
+import logo from "../../assets/logo.svg";
 
 const keyframesAppLogoSpin = keyframes`
   from { transform: rotate(0deg); }
@@ -20,18 +21,24 @@ const AppLogo = styled.img`
   height: 80px;
 `;
 
-export interface IProps {
-  userName: string,
-}
-
-const render: React.SFC<IProps> = ({ userName }) => (
-  <AppHeader>
-    <AppLogo src={logo} alt="logo" />
-    <p>Hello, { userName }</p>
-    <p>
-      <Link to="/">Home</Link> / <Link to="/about/">About</Link> / <Link to="/users/">Users</Link>
-    </p>
-  </AppHeader>
-);
+const render: React.SFC<IGHeaderProps> = ({
+  userName,
+  greeting,
+  setUserName
+}) => {
+  const onClick = () => setUserName("nobi");
+  return (
+    <AppHeader>
+      <AppLogo src={logo} alt="logo" />
+      <p onClick={onClick}>
+        {greeting}, {userName}
+      </p>
+      <p>
+        <Link to="/">Home</Link> / <Link to="/about/">About</Link> /{" "}
+        <Link to="/users/">Users</Link>
+      </p>
+    </AppHeader>
+  );
+};
 
 export default render;
