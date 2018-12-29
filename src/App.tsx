@@ -11,16 +11,12 @@ const AppIntro = styled.p`
   font-size: large;
 `;
 
-export default class extends React.Component {
-  public render() {
-    return (
-      <AppWrapper>
-        <GHeader />
-        <RouterContent />
-        <AppIntro>
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </AppIntro>
-      </AppWrapper>
-    );
-  }
-}
+export default () => (
+  <AppWrapper>
+    <GHeader />
+    <RouterContent />
+    <AppIntro>
+      To get started, edit <code>src/App.tsx</code> and save to reload.
+    </AppIntro>
+  </AppWrapper>
+);
