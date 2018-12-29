@@ -1,24 +1,24 @@
 import * as React from 'react';
-import "reset.css";
+import 'reset.css';
 import styled from 'styled-components';
 import GHeader from '~/components/GHeader';
 import RouterContent from '~/RouterContent';
 
 const AppWrapper = styled.div`
-  font-family: sans-serif;
-  text-align: center;
+    font-family: sans-serif;
+    text-align: center;
 `;
 
 const AppIntro = styled.p`
-  font-size: large;
+    font-size: large;
 `;
 
 export default () => (
-  <AppWrapper>
-    <GHeader greeting="Hello"/>
-    <RouterContent />
-    <AppIntro>
-      To get started, edit <code>src/App.tsx</code> and save to reload.
-    </AppIntro>
-  </AppWrapper>
+    <AppWrapper>
+        <GHeader greeting="Hello" />
+        <RouterContent />
+        <AppIntro>
+            To get started, edit <code>src/App.tsx</code> and save to reload.
+        </AppIntro>
+    </AppWrapper>
 );
