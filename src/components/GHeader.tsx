@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
-import logo from '../logo.svg';
+import logo from '../assets/logo.svg';
 
 const keyframesAppLogoSpin = keyframes`
   from { transform: rotate(0deg); }
