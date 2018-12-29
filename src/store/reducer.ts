@@ -1,17 +1,17 @@
 import { Actions, ActionType } from "./actions";
-import { IUser } from "./states/User";
+import IState from "./state";
 
-export default (state: IUser, action: Actions): IUser => {
+export default (state: IState, action: Actions): IState => {
   switch (action.type) {
     case ActionType.SET_USER_NAME:
       return {
         ...state,
-        name: action.name
+        userName: action.name
       };
     case ActionType.SET_USER_ID:
       return {
         ...state,
-        id: action.id
+        userId: action.id
       };
     default:
       return state;

@@ -5,11 +5,12 @@ import { Provider } from "react-redux";
 import { Router } from "react-router-dom";
 import { createStore } from "redux";
 import App from "./App";
-import reducer from "./reducer";
 import registerServiceWorker from "./registerServiceWorker";
+import reducer from "./store/reducer";
 
 const browserHistory = createBrowserHistory();
 const store = createStore(reducer, {});
+// TODO: constだとあぶない気がする
 
 ReactDOM.render(
   <Provider store={store}>
