@@ -1,10 +1,10 @@
 import { createBrowserHistory } from 'history';
-import * as React from "react";
-import { Link, Router } from "react-router-dom";
-import RouterContent from "./RouterContent";
+import * as React from 'react';
+import { Link, Router } from 'react-router-dom';
+import RouterContent from './RouterContent';
 
-import "./App.css";
-import logo from "./logo.svg";
+import './App.css';
+import logo from './logo.svg';
 
 const browserHistory = createBrowserHistory();
 
