@@ -1,5 +1,5 @@
 import { Actions, ActionType } from "./actions";
-import IState from "./state";
+import { IState } from "./state";
 
 export default (state: IState, action: Actions): IState => {
   switch (action.type) {

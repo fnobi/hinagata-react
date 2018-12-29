@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { Actions, ActionType } from "../../store/actions";
-import IState from "../../store/state";
+import { IState } from "../../store/state";
 import GHeader from "./GHeader";
 
 interface IStateProps {

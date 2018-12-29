@@ -7,10 +7,10 @@ import { createStore } from "redux";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import reducer from "./store/reducer";
+import { defaultState } from "./store/state";
 
 const browserHistory = createBrowserHistory();
-const store = createStore(reducer, { userName: 'react' });
-// TODO: constだとあぶない気がする
+const store = createStore(reducer, defaultState);
 
 ReactDOM.render(
   <Provider store={store}>
