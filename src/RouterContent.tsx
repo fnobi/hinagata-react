@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Route } from "react-router-dom";
-import About from "./views/About";
-import Index from "./views/Index";
-import Users from "./views/Users";
+import About from "~/views/About";
+import Index from "~/views/Index";
+import Users from "~/views/Users";
 
 export default () => (
   <div>

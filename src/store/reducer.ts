@@ -1,5 +1,5 @@
-import { Actions, ActionType } from "./actions";
-import { IState } from "./state";
+import { Actions, ActionType } from "~/store/actions";
+import { IState } from "~/store/state";
 
 export default (state: IState, action: Actions): IState => {
   switch (action.type) {
