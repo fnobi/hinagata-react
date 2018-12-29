@@ -9,7 +9,7 @@ import registerServiceWorker from "./registerServiceWorker";
 import reducer from "./store/reducer";
 
 const browserHistory = createBrowserHistory();
-const store = createStore(reducer, {});
+const store = createStore(reducer, { userName: 'react' });
 // TODO: constだとあぶない気がする
 
 ReactDOM.render(
