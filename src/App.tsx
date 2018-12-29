@@ -15,7 +15,7 @@ const AppIntro = styled.p`
 
 export default () => (
   <AppWrapper>
-    <GHeader />
+    <GHeader greeting="Hello"/>
     <RouterContent />
     <AppIntro>
       To get started, edit <code>src/App.tsx</code> and save to reload.
