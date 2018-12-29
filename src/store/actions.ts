@@ -1,6 +1,6 @@
 export enum ActionType {
   SET_USER_NAME = 'SET_USER_NAME',
-  SET_USER_ID = 'SET_USER_ID',
+  ROTATE_USER_NAME = 'ROTATE_USER_NAME',
 }
 
 export interface ISetUserNameAction {
@@ -8,9 +8,8 @@ export interface ISetUserNameAction {
   name: string
 }
 
-export interface ISetUserIdAction {
-  type: ActionType.SET_USER_ID,
-  id: number
+export interface IRotateUserNameAction {
+  type: ActionType.ROTATE_USER_NAME
 }
 
-export type Actions = ISetUserNameAction | ISetUserIdAction;
+export type Actions = ISetUserNameAction | IRotateUserNameAction;

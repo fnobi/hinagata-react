@@ -8,10 +8,10 @@ export default (state: IState, action: Actions): IState => {
         ...state,
         userName: action.name
       };
-    case ActionType.SET_USER_ID:
+    case ActionType.ROTATE_USER_NAME:
       return {
         ...state,
-        userId: action.id
+        userName: state.userName.slice(1) + state.userName.slice(0, 1)
       };
     default:
       return state;

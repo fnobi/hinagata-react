@@ -19,26 +19,47 @@ const AppHeader = styled.header`
 const AppLogo = styled.img`
   animation: ${keyframesAppLogoSpin} infinite 20s linear;
   height: 80px;
+  pointer-events: none;
+`;
+
+const NavItem = styled.li`
+  display: inline-block;
+  &:after {
+    content: "/";
+    padding: 0em 0.5em;
+  }
+  &:last-child {
+    &:after {
+      display: none;
+    }
+  }
+  a {
+    color: inherit;
+  }
 `;
 
 const render: React.SFC<IGHeaderProps> = ({
   userName,
   greeting,
-  setUserName
-}) => {
-  const onClick = () => setUserName("nobi");
-  return (
-    <AppHeader>
-      <AppLogo src={logo} alt="logo" />
-      <p onClick={onClick}>
-        {greeting}, {userName}
-      </p>
-      <p>
-        <Link to="/">Home</Link> / <Link to="/about/">About</Link> /{" "}
+  rotateUserName
+}) => (
+  <AppHeader>
+    <AppLogo src={logo} alt="logo" />
+    <p onClick={rotateUserName}>
+      {greeting}, {userName}
+    </p>
+    <ul>
+      <NavItem>
+        <Link to="/">Home</Link>
+      </NavItem>
+      <NavItem>
+        <Link to="/about/">About</Link>
+      </NavItem>
+      <NavItem>
         <Link to="/users/">Users</Link>
-      </p>
-    </AppHeader>
-  );
-};
+      </NavItem>
+    </ul>
+  </AppHeader>
+);
 
 export default render;

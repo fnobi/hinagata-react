@@ -9,7 +9,7 @@ interface IStateProps {
 }
 
 interface IDispatchProps {
-  setUserName: (userName: string) => Actions;
+  rotateUserName: () => Actions;
 }
 
 export interface IGHeaderProps extends IStateProps, IDispatchProps {
@@ -21,10 +21,9 @@ const mapStateToProps = (state: IState): IStateProps => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Actions>): IDispatchProps => ({
-  setUserName: (name: string) =>
+  rotateUserName: () =>
     dispatch({
-      name,
-      type: ActionType.SET_USER_NAME
+      type: ActionType.ROTATE_USER_NAME
     })
 });
 
