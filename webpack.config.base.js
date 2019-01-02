@@ -1,6 +1,7 @@
 'use strict';
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 const readConfig = require('read-config');
 const path = require('path');
 
@@ -28,7 +29,7 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: [
                     {
-                        loader: 'tslint-loader',
+                        loader: require.resolve('tslint-loader'),
                         options: {
                             typeCheck: true,
                             fix: true,
@@ -39,16 +40,44 @@ module.exports = {
             */
             {
                 test: /\.tsx?$/,
-                loader: 'ts-loader',
+                loader: require.resolve('ts-loader'),
                 exclude: /node_modules/,
             },
             {
                 test: /\.css$/,
-                loader: 'css-loader',
+                use: [
+                    require.resolve('style-loader'),
+                    {
+                        loader: require.resolve('css-loader'),
+                        options: {
+                            importLoaders: 1,
+                        },
+                    },
+                    {
+                        loader: require.resolve('postcss-loader'),
+                        options: {
+                            // Necessary for external CSS imports to work
+                            // https://github.com/facebookincubator/create-react-app/issues/2677
+                            ident: 'postcss',
+                            plugins: () => [
+                                require('postcss-flexbugs-fixes'),
+                                autoprefixer({
+                                    browsers: [
+                                        '>1%',
+                                        'last 4 versions',
+                                        'Firefox ESR',
+                                        'not ie < 9', // React doesn't support IE8 anyway
+                                    ],
+                                    flexbox: 'no-2009',
+                                }),
+                            ],
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/,
-                loader: 'file-loader',
+                loader: require.resolve('file-loader'),
             },
         ],
     },
