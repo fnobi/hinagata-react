@@ -1,14 +1,14 @@
-import { Actions, ActionType } from '~/store/actions';
-import { IState } from '~/store/state';
+import { AppActions, AppActionType } from '~/store/actions';
+import { AppState } from '~/store/state';
 
-export default (state: IState, action: Actions): IState => {
+export default (state: AppState, action: AppActions): AppState => {
     switch (action.type) {
-        case ActionType.SET_USER_NAME:
+        case AppActionType.SET_USER_NAME:
             return {
                 ...state,
                 userName: action.name,
             };
-        case ActionType.ROTATE_USER_NAME:
+        case AppActionType.ROTATE_USER_NAME:
             return {
                 ...state,
                 userName: state.userName.slice(1) + state.userName.slice(0, 1),

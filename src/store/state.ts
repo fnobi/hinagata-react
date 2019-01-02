@@ -1,10 +1,10 @@
-export interface IState {
+export interface AppState {
     userId: number;
     userName: string;
     userComment?: string;
 }
 
-export const defaultState: IState = {
+export const defaultState: AppState = {
     userId: 10,
     userName: 'react',
 };

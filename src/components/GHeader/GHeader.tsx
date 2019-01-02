@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
-import { IGHeaderProps } from '.';
+import { GHeaderProps } from '.';
 
 const keyframesAppLogoSpin = keyframes`
   from { transform: rotate(0deg); }
@@ -42,7 +42,7 @@ const NavItem = styled.li`
     }
 `;
 
-const render: React.SFC<IGHeaderProps> = ({
+const render: React.SFC<GHeaderProps> = ({
     userName,
     greeting,
     rotateUserName,

@@ -1,33 +1,33 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { Actions, ActionType } from '~/store/actions';
-import { IState } from '~/store/state';
+import { AppActions, AppActionType } from '~/store/actions';
+import { AppState } from '~/store/state';
 import GHeader from './GHeader';
 
-interface IStateProps {
+interface StateProps {
     userName: string;
 }
 
-interface IDispatchProps {
-    rotateUserName: () => Actions;
+interface DispatchProps {
+    rotateUserName: () => AppActions;
 }
 
-export interface IGHeaderProps extends IStateProps, IDispatchProps {
+export interface GHeaderProps extends StateProps, DispatchProps {
     greeting: string;
 }
 
-const mapStateToProps = (state: IState): IStateProps => ({
+const mapStateToProps = (state: AppState): StateProps => ({
     userName: state.userName,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<Actions>): IDispatchProps => ({
+const mapDispatchToProps = (dispatch: Dispatch<AppActions>): DispatchProps => ({
     rotateUserName: () =>
         dispatch({
-            type: ActionType.ROTATE_USER_NAME,
+            type: AppActionType.ROTATE_USER_NAME,
         }),
 });
 
-export default connect<IStateProps, IDispatchProps>(
+export default connect<StateProps, DispatchProps>(
     mapStateToProps,
     mapDispatchToProps
 )(GHeader);
