@@ -41,8 +41,8 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js"
+    "start": "webpack-dev-server --env development --inline --open",
+    "build": "webpack --mode production --progress"
   },
   "devDependencies": {
     "@types/node": "^10.12.18",
@@ -53,6 +53,7 @@
     "@types/styled-components": "^4.1.4",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
+    "read-config": "^2.0.0",
     "redux": "^4.0.1",
     "reset.css": "^2.0.2",
     "styled-components": "^4.1.3",
