@@ -6,7 +6,8 @@ const path = require('path');
 
 // base config
 const SRC = './src';
-const DEST = './public';
+const STATIC = './public';
+const DEST = './dist';
 const HOST = process.env.HOST || '0.0.0.0';
 const PORT = process.env.PORT || 3000;
 
@@ -14,16 +15,12 @@ const constants = readConfig(`${SRC}/constants.yml`);
 const { BASE_DIR } = constants;
 
 module.exports = {
-    // エントリーファイル
     entry: `${SRC}/index.tsx`,
-    // 出力するディレクトリ・ファイル名などの設定
     output: {
         path: path.resolve(__dirname, DEST + BASE_DIR),
-        filename: '[name]',
         publicPath: BASE_DIR,
     },
     module: {
-        // 各ファイル形式ごとのビルド設定
         rules: [
             /*
             {
@@ -55,16 +52,13 @@ module.exports = {
             },
         ],
     },
-    // webpack-dev-serverの設定
     devServer: {
         host: HOST,
         port: PORT,
-        contentBase: DEST,
+        contentBase: STATIC,
         openPage: path.relative('/', BASE_DIR),
     },
-    // キャシュ有効化
     cache: true,
-    // 拡張子省略時のpath解決
     resolve: {
         extensions: ['.js', '.ts', '.tsx', '.json', '*'],
         alias: {
@@ -73,7 +67,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: `${DEST}/index.html`,
+            template: `${STATIC}/index.html`,
         }),
     ],
 };
