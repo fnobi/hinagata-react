@@ -8,6 +8,7 @@
     ]
   },
   "rules": {
-    "prettier": true
+    "prettier": true,
+    "no-var-requires": false
   }
 }

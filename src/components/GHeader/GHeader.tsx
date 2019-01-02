@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import { IGHeaderProps } from '.';
 
-import logo from '~/assets/logo.svg';
-
 const keyframesAppLogoSpin = keyframes`
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -16,10 +14,16 @@ const AppHeader = styled.header`
     color: white;
 `;
 
-const AppLogo = styled.img`
-    animation: ${keyframesAppLogoSpin} infinite 20s linear;
+const AppLogo = styled.div`
+    width: 80px;
     height: 80px;
+    margin: auto;
+    background-image: url(${require('~/assets/logo.svg')});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     pointer-events: none;
+    animation: ${keyframesAppLogoSpin} infinite 20s linear;
 `;
 
 const NavItem = styled.li`
@@ -44,7 +48,7 @@ const render: React.SFC<IGHeaderProps> = ({
     rotateUserName,
 }) => (
     <AppHeader>
-        <AppLogo src={logo} alt="logo" />
+        <AppLogo />
         <p onClick={rotateUserName}>
             {greeting}, {userName}
         </p>
