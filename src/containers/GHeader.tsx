@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import GHeader from '~/components/GHeader';
 import { AppActions, AppActionType } from '~/store/actions';
 import { AppState } from '~/store/state';
-import GHeader from './GHeader';
 
 interface StateProps {
     userName: string;

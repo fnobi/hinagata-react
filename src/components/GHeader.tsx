@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
-import { MEDIA, styleAsset } from '~/const/styleVariables';
-import { GHeaderProps } from '.';
+import { MEDIA, styleAsset } from '~/constants/styleVariables';
+import { GHeaderProps } from '~/containers/GHeader';
 
 const keyframesAppLogoSpin = keyframes`
   from { transform: rotate(0deg); }
