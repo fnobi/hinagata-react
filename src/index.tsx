@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import { createStore } from 'redux';
 import App from '~/App';
-import registerServiceWorker from '~/registerServiceWorker';
 import reducer from '~/store/reducer';
 import { defaultState } from '~/store/state';
 
@@ -18,4 +17,3 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root') as HTMLElement
 );
-registerServiceWorker();
