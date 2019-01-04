@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
+import { MEDIA, styleAsset } from '~/const/styleVariables';
 import { GHeaderProps } from '.';
 
 const keyframesAppLogoSpin = keyframes`
@@ -9,16 +10,21 @@ const keyframesAppLogoSpin = keyframes`
 `;
 
 const AppHeader = styled.header`
-    background-color: #222;
     padding: 20px;
     color: white;
+    ${MEDIA.PC} {
+        background-color: #222;
+    }
+    ${MEDIA.SP} {
+        background-color: #002;
+    }
 `;
 
 const AppLogo = styled.div`
     width: 80px;
     height: 80px;
     margin: auto;
-    background-image: url(${require('~/assets/logo.svg')});
+    background-image: ${styleAsset('logo.svg')};
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
