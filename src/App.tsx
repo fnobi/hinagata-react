@@ -1,7 +1,7 @@
 import * as React from 'react';
 import 'reset.css';
 import styled from 'styled-components';
-import GHeader from '~/containers/GHeader';
+import GHeader from '~/components/GHeader';
 import RouterContent from '~/RouterContent';
 
 const AppWrapper = styled.div`

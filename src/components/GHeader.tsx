@@ -1,8 +1,36 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Dispatch } from 'redux';
 import styled, { keyframes } from 'styled-components';
 import { MEDIA, styleAsset } from '~/constants/styleVariables';
-import { GHeaderProps } from '~/containers/GHeader';
+import { AppActions, AppActionType } from '~/store/actions';
+import { AppState } from '~/store/state';
+
+
+interface StateProps {
+    userName: string;
+}
+
+interface DispatchProps {
+    rotateUserName: () => AppActions;
+}
+
+interface GHeaderProps extends StateProps, DispatchProps {
+    greeting: string;
+}
+
+const mapStateToProps = (state: AppState): StateProps => ({
+    userName: state.userName,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<AppActions>): DispatchProps => ({
+    rotateUserName: () =>
+        dispatch({
+            type: AppActionType.ROTATE_USER_NAME,
+        }),
+});
+
 
 const keyframesAppLogoSpin = keyframes`
   from { transform: rotate(0deg); }
@@ -48,7 +76,7 @@ const NavItem = styled.li`
     }
 `;
 
-const render: React.SFC<GHeaderProps> = ({
+const GHeader: React.SFC<GHeaderProps> = ({
     userName,
     greeting,
     rotateUserName,
@@ -72,4 +100,7 @@ const render: React.SFC<GHeaderProps> = ({
     </AppHeader>
 );
 
-export default render;
+export default connect<StateProps, DispatchProps>(
+    mapStateToProps,
+    mapDispatchToProps
+)(GHeader);
