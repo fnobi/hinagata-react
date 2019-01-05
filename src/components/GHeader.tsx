@@ -1,13 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import styled from 'styled-components';
-import GNavi from "~/components/GNavi";
-import ReactLogo from "~/components/ReactLogo";
-import { MEDIA } from '~/constants/styleVariables';
+import GNavi from '~/components/GNavi';
+import ReactLogo from '~/components/ReactLogo';
 import { AppActions, AppActionType } from '~/store/actions';
 import { AppState } from '~/store/state';
-
 
 interface StateProps {
     userName: string;
@@ -32,30 +29,18 @@ const mapDispatchToProps = (dispatch: Dispatch<AppActions>): DispatchProps => ({
         }),
 });
 
-
-const Wrapper = styled.header`
-    padding: 20px;
-    color: white;
-    ${MEDIA.PC} {
-        background-color: #222;
-    }
-    ${MEDIA.SP} {
-        background-color: #002;
-    }
-`;
-
 const GHeader: React.SFC<GHeaderProps> = ({
     userName,
     greeting,
     rotateUserName,
 }) => (
-    <Wrapper>
+    <div>
         <ReactLogo />
         <p onClick={rotateUserName}>
             {greeting}, {userName}
         </p>
         <GNavi />
-    </Wrapper>
+    </div>
 );
 
 export default connect<StateProps, DispatchProps>(
