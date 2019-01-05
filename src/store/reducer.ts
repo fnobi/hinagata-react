@@ -1,7 +1,7 @@
-import { AppActions, AppActionType } from '~/store/actions';
+import { AppAction, AppActionType } from '~/store/actions';
 import { AppState } from '~/store/state';
 
-export default (state: AppState, action: AppActions): AppState => {
+export default (state: AppState, action: AppAction): AppState => {
     switch (action.type) {
         case AppActionType.SET_USER_NAME:
             return {

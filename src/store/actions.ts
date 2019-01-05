@@ -12,4 +12,4 @@ export interface RotateUserNameAction {
     type: AppActionType.ROTATE_USER_NAME;
 }
 
-export type AppActions = SetUserNameAction | RotateUserNameAction;
+export type AppAction = SetUserNameAction | RotateUserNameAction;

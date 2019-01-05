@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import GNavi from '~/components/GNavi';
 import ReactLogo from '~/components/ReactLogo';
-import { AppActions, AppActionType } from '~/store/actions';
+import { AppAction, AppActionType } from '~/store/actions';
 import { AppState } from '~/store/state';
 
 interface StateProps {
@@ -11,7 +11,7 @@ interface StateProps {
 }
 
 interface DispatchProps {
-    rotateUserName: () => AppActions;
+    rotateUserName: () => AppAction;
 }
 
 interface Props extends StateProps, DispatchProps {
@@ -22,7 +22,7 @@ const mapStateToProps = (state: AppState): StateProps => ({
     userName: state.userName,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<AppActions>): DispatchProps => ({
+const mapDispatchToProps = (dispatch: Dispatch<AppAction>): DispatchProps => ({
     rotateUserName: () =>
         dispatch({
             type: AppActionType.ROTATE_USER_NAME,
