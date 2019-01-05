@@ -2,6 +2,10 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+const Wrapper = styled.ul`
+    margin-top: 1em;
+`;
+
 const NavItem = styled.li`
     display: inline-block;
     &:after {
@@ -19,7 +23,7 @@ const NavItem = styled.li`
 `;
 
 export default () => (
-    <ul>
+    <Wrapper>
         <NavItem>
             <Link to="/">Home</Link>
         </NavItem>
@@ -29,5 +33,5 @@ export default () => (
         <NavItem>
             <Link to="/users/">Users</Link>
         </NavItem>
-    </ul>
+    </Wrapper>
 );

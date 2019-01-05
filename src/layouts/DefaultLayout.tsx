@@ -10,12 +10,9 @@ const AppWrapper = styled.div`
     text-align: center;
 `;
 
-const AppIntro = styled.p`
-    font-size: large;
-`;
-
 const AppHeader = styled.header`
     padding: 20px;
+    padding-top: 0px;
     color: white;
     ${MEDIA.PC} {
         background-color: #222;
@@ -23,6 +20,10 @@ const AppHeader = styled.header`
     ${MEDIA.SP} {
         background-color: #002;
     }
+`;
+
+const AppContent = styled.div`
+    margin: 1em 0em;
 `;
 
 interface Props {
@@ -34,10 +35,7 @@ const DefaultLayout: React.SFC<Props> = ({ children }) => (
         <AppHeader>
             <GHeader greeting="Hello" />
         </AppHeader>
-        {children}
-        <AppIntro>
-            To get started, edit <code>src/App.tsx</code> and save to reload.
-        </AppIntro>
+        <AppContent>{children}</AppContent>
     </AppWrapper>
 );
 

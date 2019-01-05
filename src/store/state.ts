@@ -6,5 +6,5 @@ export interface AppState {
 
 export const defaultState: AppState = {
     userId: 10,
-    userName: 'react',
+    userName: 'hinagata-react',
 };

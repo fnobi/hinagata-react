@@ -7,7 +7,7 @@ const keyframesAppLogoSpin = keyframes`
   to { transform: rotate(360deg); }
 `;
 
-const ReactLogo = styled.div`
+const Logo = styled.div`
     width: 80px;
     height: 80px;
     margin: auto;
@@ -15,8 +15,14 @@ const ReactLogo = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    pointer-events: none;
+    cursor: pointer;
     animation: ${keyframesAppLogoSpin} infinite 20s linear;
 `;
 
-export default () => <ReactLogo />;
+interface Props {
+    onClick: () => void;
+}
+
+const ReactLogo: React.SFC<Props> = ({ onClick }) => <Logo onClick={onClick} />;
+
+export default ReactLogo;

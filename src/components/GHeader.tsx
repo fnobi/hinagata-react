@@ -14,7 +14,7 @@ interface DispatchProps {
     rotateUserName: () => AppActions;
 }
 
-interface GHeaderProps extends StateProps, DispatchProps {
+interface Props extends StateProps, DispatchProps {
     greeting: string;
 }
 
@@ -29,16 +29,10 @@ const mapDispatchToProps = (dispatch: Dispatch<AppActions>): DispatchProps => ({
         }),
 });
 
-const GHeader: React.SFC<GHeaderProps> = ({
-    userName,
-    greeting,
-    rotateUserName,
-}) => (
+const GHeader: React.SFC<Props> = ({ userName, greeting, rotateUserName }) => (
     <div>
-        <ReactLogo />
-        <p onClick={rotateUserName}>
-            {greeting}, {userName}
-        </p>
+        <ReactLogo onClick={rotateUserName} />
+        {greeting}, {userName}
         <GNavi />
     </div>
 );
