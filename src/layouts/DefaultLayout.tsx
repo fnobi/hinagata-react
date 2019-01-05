@@ -1,9 +1,9 @@
 import * as React from 'react';
+import { ReactNode } from 'react';
 import 'reset.css';
 import styled from 'styled-components';
 import GHeader from '~/components/GHeader';
 import { MEDIA } from '~/constants/styleVariables';
-import RouterContent from '~/RouterContent';
 
 const AppWrapper = styled.div`
     font-family: sans-serif;
@@ -25,14 +25,20 @@ const AppHeader = styled.header`
     }
 `;
 
-export default () => (
+interface Props {
+    children: ReactNode[];
+}
+
+const DefaultLayout: React.SFC<Props> = ({ children }) => (
     <AppWrapper>
         <AppHeader>
             <GHeader greeting="Hello" />
         </AppHeader>
-        <RouterContent />
+        {children}
         <AppIntro>
             To get started, edit <code>src/App.tsx</code> and save to reload.
         </AppIntro>
     </AppWrapper>
 );
+
+export default DefaultLayout;
